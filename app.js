@@ -138,9 +138,9 @@ function setup() {
   // console.log(createCanvas());
   qtree = new QuadTree(new Rectangle(canvas.clientWidth / 2, canvas.clientHeight / 2, canvas.clientWidth, canvas.clientHeight));
   
-  for (let i = 0; i < 50; i++) {
-    qtree.insert(new Point(random(0,canvas.clientWidth), random(0,canvas.clientHeight)));
-  }
+  // for (let i = 0; i < 50; i++) {
+  //   qtree.insert(new Point(random(0,canvas.clientWidth), random(0,canvas.clientHeight)));
+  // }
   
   console.log(qtree);
   console.log(canvas);
