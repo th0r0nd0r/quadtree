@@ -121,15 +121,20 @@ let qtree;
 function setup() {
   canvas = createCanvas(500, 500).canvas;
   // console.log(createCanvas());
-  const qtree = new QuadTree(new Rectangle(canvas.clientWidth / 2, canvas.clientHeight / 2, canvas.clientWidth, canvas.clientHeight));
+  qtree = new QuadTree(new Rectangle(canvas.clientWidth / 2, canvas.clientHeight / 2, canvas.clientWidth, canvas.clientHeight));
 
   for (let i = 0; i < 50; i++) {
     qtree.insert(new Point(random(0,canvas.clientWidth), random(0,canvas.clientHeight)));
   }
   
   console.log(qtree);
-  qtree.show();
   console.log(canvas);
+}
+
+function draw() {
+  let pt = new Point(mouseX, mouseY);
+  qtree.insert(pt);
+  qtree.show();
 }
 
 // const canvas = createCanvas(1000, 700);
