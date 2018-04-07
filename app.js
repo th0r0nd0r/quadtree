@@ -134,7 +134,7 @@ let qtree;
 function setup() {
   colorMode(HSL);
   frameRate(24);
-  canvas = createCanvas(700, 700).canvas;
+  canvas = createCanvas(1000, 700).canvas;
   // console.log(createCanvas());
   qtree = new QuadTree(new Rectangle(canvas.clientWidth / 2, canvas.clientHeight / 2, canvas.clientWidth, canvas.clientHeight));
   
