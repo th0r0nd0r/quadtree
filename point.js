@@ -5,4 +5,6 @@ class Point {
   }
 }
 
-export default Point;
+module.exports = {
+  Point
+}

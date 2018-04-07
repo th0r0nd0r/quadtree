@@ -1,5 +1,7 @@
-import Point from './point';
-import Rectangle from './rectangle';
+const point = require('./point');
+const Point = point.Point;
+const rectangle = require('./rectangle');
+const Rectangle = rectangle.Rectangle;
 
 class QuadTree {
   constructor(boundary) {
@@ -61,4 +63,4 @@ class QuadTree {
 
 }
 
-export default {QuadTree, Rectangle, Point};
+module.exports = {QuadTree, Rectangle, Point};
