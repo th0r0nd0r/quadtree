@@ -36,6 +36,7 @@ class QuadTree {
     this.insert = this.insert.bind(this);
     this.distributePoints = this.distributePoints.bind(this);
     this.divide = this.divide.bind(this);
+    this.show = this.show.bind(this);
   }
 
   insert(point) {
@@ -81,6 +82,18 @@ class QuadTree {
     this.distributePoints();
     this.divided = true;
   }
+
+  show() {
+    stroke(color('green'));
+    noFill();
+    rectMode(CENTER);
+    rect(this.boundary.x, this.boundary.y, this.boundary.width, this.boundary.height)
+    if (this.divided) {
+      Object.values(this.subtrees).forEach(function(tree) {
+        tree.show();
+      })
+    }
+  }
 }
 
 
@@ -95,28 +108,30 @@ class QuadTree {
 //   ctx.fillStyle = 'green';
 //   ctx.fillRect(500, 350, canvas.width / 4, canvas.height / 4);
   
-//   const qtree = new QuadTree(new Rectangle(canvas.width / 2, canvas.height / 2, canvas.width, canvas.height));
-
-//   for (let i = 0; i < 5; i++) {
-//     qtree.insert(new Point(random(0,1000), random(0,700)));
-//   }
-
-//   console.log(qtree);
 // });
 
-
+let canvas;
+let qtree;
 
 function setup() {
-  createCanvas(640, 480);
+  canvas = createCanvas(501, 501).canvas;
+  // console.log(createCanvas());
+  const qtree = new QuadTree(new Rectangle(canvas.clientWidth / 2, canvas.clientHeight / 2, canvas.clientWidth, canvas.clientHeight));
+
+  for (let i = 0; i < 50; i++) {
+    qtree.insert(new Point(random(0,canvas.clientWidth), random(0,canvas.clientHeight)));
+  }
+  
+  console.log(qtree);
+  qtree.show();
+  console.log(canvas);
 }
 
-function draw() {
-  if (mouseIsPressed) {
-    fill(0);
-  } else {
-    fill(255);
-  }
-  ellipse(mouseX, mouseY, 80, 80);
-}
+// const canvas = createCanvas(1000, 700);
+
+
+
+
+
 
 // draw();
