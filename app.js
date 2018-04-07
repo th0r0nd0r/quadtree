@@ -83,19 +83,31 @@ class QuadTree {
     this.divided = true;
   }
 
-  show() {
-    stroke(color('green'));
+  show(offset) {
+    
+    function getColor(value, max) {
+      let newValue = (value / max);
+      //value from 0 to 1
+      let hue = ((offset - newValue) * 200);
+      return [hue,50,70];
+    }
+
+    const boxColor = getColor(this.points.length, this.capacity);
+    // console.log(boxColor[0], 50, 70);
+
+    stroke(boxColor[0], 50, 70);
     strokeWeight(1);
     noFill();
     rectMode(CENTER);
     rect(this.boundary.x, this.boundary.y, this.boundary.width - 1, this.boundary.height - 1);
     strokeWeight(4);
+    stroke(color('gray'), 50, 70);
     this.points.forEach(function(pt) {
       point(pt.x, pt.y);
     })
     if (this.divided) {
       Object.values(this.subtrees).forEach(function(tree) {
-        tree.show();
+        tree.show(offset);
       })
     }
   }
@@ -118,12 +130,14 @@ class QuadTree {
 let canvas;
 let qtree;
 
+
 function setup() {
+  colorMode(HSL);
   frameRate(24);
-  canvas = createCanvas(500, 500).canvas;
+  canvas = createCanvas(700, 700).canvas;
   // console.log(createCanvas());
   qtree = new QuadTree(new Rectangle(canvas.clientWidth / 2, canvas.clientHeight / 2, canvas.clientWidth, canvas.clientHeight));
-
+  
   for (let i = 0; i < 50; i++) {
     qtree.insert(new Point(random(0,canvas.clientWidth), random(0,canvas.clientHeight)));
   }
@@ -132,10 +146,13 @@ function setup() {
   console.log(canvas);
 }
 
+let offset = 0.8;
+
 function draw() {
   let pt = new Point(mouseX, mouseY);
   qtree.insert(pt);
-  qtree.show();
+
+  qtree.show(offset);
 }
 
 // const canvas = createCanvas(1000, 700);
