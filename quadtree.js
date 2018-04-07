@@ -32,11 +32,13 @@ class QuadTree {
   }
 
   insert(point) {
-    if (this.boundary.inBounds(point) && this.points.length < this.capacity) {
+    if (this.boundary.inBounds(point)) {
       this.points.push(point);
-    } else {
-      this.divide();
     }
+    
+    if (this.points.length >= this.capacity) {
+      this.divide();
+    } 
   }
 
   divide() {
