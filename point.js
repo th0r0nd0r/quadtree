@@ -4,3 +4,7 @@ class Point {
     this.y = y;
   }
 }
+
+export default Point;
+
+console.log(Point);

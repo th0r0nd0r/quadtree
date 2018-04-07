@@ -48,3 +48,9 @@ class QuadTree {
 
 
 }
+
+export default {QuadTree, Rectangle, Point};
+// console.log("aslkdfjasldkfjas;ldfjasldkfjasdlfj");
+// console.log(QuadTree);
+// console.log(Rectangle);
+// console.log(Point);
