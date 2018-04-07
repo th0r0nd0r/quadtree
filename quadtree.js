@@ -54,6 +54,16 @@ class QuadTree {
     this.subtrees.northEast = new QuadTree(ne);
     this.subtrees.southWest = new QuadTree(sw);
     this.subtrees.southEast = new QuadTree(se);
+
+    const trees = Object.values(this.subtrees);
+
+    this.points.forEach(function(point) {
+      trees.forEach(function(tree) {
+        tree.insert(point);
+      });
+    });
+
+    this.points = [];
   }
 
 
