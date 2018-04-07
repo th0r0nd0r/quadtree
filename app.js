@@ -85,9 +85,14 @@ class QuadTree {
 
   show() {
     stroke(color('green'));
+    strokeWeight(1);
     noFill();
     rectMode(CENTER);
     rect(this.boundary.x, this.boundary.y, this.boundary.width - 1, this.boundary.height - 1);
+    strokeWeight(4);
+    this.points.forEach(function(pt) {
+      point(pt.x, pt.y);
+    })
     if (this.divided) {
       Object.values(this.subtrees).forEach(function(tree) {
         tree.show();
