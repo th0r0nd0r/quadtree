@@ -3,6 +3,16 @@ const Rectangle = Classes.default.Rectangle;
 const Point = Classes.default.Point;
 const QuadTree = Classes.default.QuadTree;
 
+const requestAnimationFrame = window.requestAnimationFrame ||
+                              window.mozRequestAnimationFrame ||
+                              window.webkitRequestAnimationFrame ||
+                              window.msRequestAnimationFrame;
+
+const cancelAnimationFrame = window.cancelAnimationFrame ||
+                              window.mozCancelAnimationFrame ||
+                              window.webkitCancelAnimationFrame ||
+                              window.msCancelAnimationFrame;
+
 function random(min,max) {
     return Math.random()*(max-min+1)+min;
 }

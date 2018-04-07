@@ -86,6 +86,16 @@ const Rectangle = _quadtree_js__WEBPACK_IMPORTED_MODULE_0__["default"].Rectangle
 const Point = _quadtree_js__WEBPACK_IMPORTED_MODULE_0__["default"].Point;
 const QuadTree = _quadtree_js__WEBPACK_IMPORTED_MODULE_0__["default"].QuadTree;
 
+const requestAnimationFrame = window.requestAnimationFrame ||
+                              window.mozRequestAnimationFrame ||
+                              window.webkitRequestAnimationFrame ||
+                              window.msRequestAnimationFrame;
+
+const cancelAnimationFrame = window.cancelAnimationFrame ||
+                              window.mozCancelAnimationFrame ||
+                              window.webkitCancelAnimationFrame ||
+                              window.msCancelAnimationFrame;
+
 function random(min,max) {
     return Math.random()*(max-min+1)+min;
 }
@@ -149,16 +159,35 @@ class QuadTree {
     this.capacity = 4;
     this.points = [];
     this.subtrees = {};
+    this.divided = false;
+
+    this.insert = this.insert.bind(this);
+    this.distributePoints = this.distributePoints.bind(this);
+    this.divide = this.divide.bind(this);
   }
 
   insert(point) {
     if (this.boundary.inBounds(point)) {
       this.points.push(point);
     }
-    
-    if (this.points.length >= this.capacity) {
+
+    if (this.divided) {
+      this.distributePoints();
+    } else if (this.points.length >= this.capacity) {
       this.divide();
     } 
+  }
+
+  distributePoints() {
+    const trees = Object.values(this.subtrees);
+
+    this.points.forEach(function(point) {
+      trees.forEach(function(tree) {
+        tree.insert(point);
+      });
+    });
+
+    this.points = [];
   }
 
   divide() {
@@ -177,15 +206,8 @@ class QuadTree {
     this.subtrees.southWest = new QuadTree(sw);
     this.subtrees.southEast = new QuadTree(se);
 
-    const trees = Object.values(this.subtrees);
-
-    this.points.forEach(function(point) {
-      trees.forEach(function(tree) {
-        tree.insert(point);
-      });
-    });
-
-    this.points = [];
+    this.distributePoints();
+    this.divided = true;
   }
 
 
@@ -211,6 +233,8 @@ class Rectangle {
     this.y = y;
     this.width = width;
     this.height = height;
+
+    this.inBounds = this.inBounds.bind(this);
   }
 
   inBounds(point) {

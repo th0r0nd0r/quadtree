@@ -4,6 +4,8 @@ class Rectangle {
     this.y = y;
     this.width = width;
     this.height = height;
+
+    this.inBounds = this.inBounds.bind(this);
   }
 
   inBounds(point) {
