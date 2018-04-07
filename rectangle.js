@@ -17,5 +17,3 @@ class Rectangle {
 }
 
 export default Rectangle;
-
-// console.log(Rectangle);

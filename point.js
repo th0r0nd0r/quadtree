@@ -6,5 +6,3 @@ class Point {
 }
 
 export default Point;
-
-console.log(Point);

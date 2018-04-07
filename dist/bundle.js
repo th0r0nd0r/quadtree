@@ -82,15 +82,13 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _quadtree_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./quadtree.js */ "./quadtree.js");
 
-
-console.log(_quadtree_js__WEBPACK_IMPORTED_MODULE_0__);
-
 const Rectangle = _quadtree_js__WEBPACK_IMPORTED_MODULE_0__["default"].Rectangle;
 const Point = _quadtree_js__WEBPACK_IMPORTED_MODULE_0__["default"].Point;
 const QuadTree = _quadtree_js__WEBPACK_IMPORTED_MODULE_0__["default"].QuadTree;
-console.log(Rectangle);
-console.log(QuadTree);
 
+function random(min,max) {
+    return Math.random()*(max-min+1)+min;
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("canvas");
@@ -99,6 +97,14 @@ document.addEventListener("DOMContentLoaded", () => {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   
   const qtree = new QuadTree(new Rectangle(canvas.width / 2, canvas.height / 2, canvas.width, canvas.height));
+
+  for (let i = 0; i < 5; i++) {
+    qtree.insert(new Point(random(0,1000), random(0,700)));
+  }
+
+  console.log(qtree);
+
+
 });
 
 /***/ }),
@@ -120,8 +126,6 @@ class Point {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Point);
-
-console.log(Point);
 
 /***/ }),
 
@@ -188,10 +192,7 @@ class QuadTree {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = ({QuadTree, Rectangle: _rectangle__WEBPACK_IMPORTED_MODULE_1__["default"], Point: _point__WEBPACK_IMPORTED_MODULE_0__["default"]});
-// console.log("aslkdfjasldkfjas;ldfjasldkfjasdlfj");
-// console.log(QuadTree);
-// console.log(Rectangle);
-// console.log(Point);
+
 
 /***/ }),
 
@@ -224,7 +225,6 @@ class Rectangle {
 
 /* harmony default export */ __webpack_exports__["default"] = (Rectangle);
 
-// console.log(Rectangle);
 
 /***/ })
 
