@@ -28,7 +28,7 @@ class Rectangle {
 class QuadTree {
   constructor(boundary) {
     this.boundary = boundary;
-    this.capacity = 4;
+    this.capacity = 5;
     this.points = [];
     this.subtrees = {};
     this.divided = false;
@@ -95,13 +95,13 @@ class QuadTree {
     const boxColor = getColor(this.points.length, this.capacity);
     // console.log(boxColor[0], 50, 70);
 
-    stroke(boxColor[0], 50, 70);
+    stroke(boxColor[0], 60, 50);
     strokeWeight(1);
     noFill();
     rectMode(CENTER);
     rect(this.boundary.x, this.boundary.y, this.boundary.width - 1, this.boundary.height - 1);
     strokeWeight(4);
-    stroke(color('gray'), 50, 70);
+    stroke(color('gray'), 60, 70);
     this.points.forEach(function(pt) {
       point(pt.x, pt.y);
     })
