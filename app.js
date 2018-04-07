@@ -87,7 +87,7 @@ class QuadTree {
     stroke(color('green'));
     noFill();
     rectMode(CENTER);
-    rect(this.boundary.x, this.boundary.y, this.boundary.width, this.boundary.height)
+    rect(this.boundary.x, this.boundary.y, this.boundary.width - 1, this.boundary.height - 1);
     if (this.divided) {
       Object.values(this.subtrees).forEach(function(tree) {
         tree.show();
@@ -114,7 +114,7 @@ let canvas;
 let qtree;
 
 function setup() {
-  canvas = createCanvas(501, 501).canvas;
+  canvas = createCanvas(500, 500).canvas;
   // console.log(createCanvas());
   const qtree = new QuadTree(new Rectangle(canvas.clientWidth / 2, canvas.clientHeight / 2, canvas.clientWidth, canvas.clientHeight));
 
