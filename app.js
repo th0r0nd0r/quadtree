@@ -119,6 +119,7 @@ let canvas;
 let qtree;
 
 function setup() {
+  frameRate(24);
   canvas = createCanvas(500, 500).canvas;
   // console.log(createCanvas());
   qtree = new QuadTree(new Rectangle(canvas.clientWidth / 2, canvas.clientHeight / 2, canvas.clientWidth, canvas.clientHeight));
