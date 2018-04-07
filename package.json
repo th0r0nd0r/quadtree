@@ -2,7 +2,7 @@
   "name": "quadtree",
   "version": "1.0.0",
   "description": "quadtree visualization",
-  "main": "quadtree.js",
+  "main": "app.js",
   "dependencies": {
     "webpack": "^4.5.0"
   },

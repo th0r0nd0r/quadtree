@@ -1,27 +1,5 @@
-class Rectangle {
-  constructor(x, y, width, height) {
-    this.x = x;
-    this.y = y;
-    this.width = width;
-    this.height = height;
-  }
-
-  inBounds(point) {
-    return (
-      point.x >= this.x - this.width / 2 &&
-      point.x < this.x + this.width / 2 &&
-      point.y > this.y - this.height / 2 &&
-      point.y <= this.y + this.height / 2
-    );
-  }
-}
-
-class Point {
-  constructor(x,y) {
-    this.x = x;
-    this.y = y;
-  }
-}
+import Point from './point';
+import Rectangle from './rectangle';
 
 class QuadTree {
   constructor(boundary) {
