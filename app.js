@@ -95,7 +95,7 @@ class QuadTree {
     const boxColor = getColor(this.points.length, this.capacity);
     // console.log(boxColor[0], 50, 70);
 
-    stroke(boxColor[0], 60, 50);
+    stroke(boxColor[0], 60, 70);
     strokeWeight(1);
     noFill();
     rectMode(CENTER);
