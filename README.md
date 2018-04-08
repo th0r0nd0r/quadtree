@@ -31,4 +31,6 @@ Calculating this for 1000 pucks gives us just over 600 **thousand** checks. Much
 
 With a roughly evenly distributed field of pucks, we reduce our time complexity down from ![O(n^2)](https://user-images.githubusercontent.com/29419913/38461532-edcab3d8-3a87-11e8-8526-0c93d7f8dddc.png) to ![nlogn](https://user-images.githubusercontent.com/29419913/38461728-856c99dc-3a8c-11e8-9638-0534c2548f08.png).
 
+Now let's tackle the worst case scenario.  If, instead of releasing the pucks on the ice in random directions, you stacked them up directly on top of each other, you'd end up with a quadtree depth of n, not log(n).  This puts us right back at ![O(n^2)](https://user-images.githubusercontent.com/29419913/38461532-edcab3d8-3a87-11e8-8526-0c93d7f8dddc.png) time complexity.  
 
+Luckily, this situation isn't very common in collision detection, so quadtrees are often a useful tool.  If you find your pucks stacked this way often in your data, however, you may want to consider another structure.
