@@ -2,6 +2,8 @@
 
 ### [Live Link](https://th0r0nd0r.github.io/quadtree/)
 
+![qtree](https://user-images.githubusercontent.com/29419913/38461777-c104e390-3a8d-11e8-9fd5-703b87eaa8c0.gif)
+
 ## Overview
 
 This project is an interactive visualization of the quadtree data structure. Here's how it works:
