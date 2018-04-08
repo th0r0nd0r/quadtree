@@ -1,4 +1,4 @@
-# QuadTree
+# Quadree
 
 ### [Live Link](https://th0r0nd0r.github.io/quadtree/)
 
