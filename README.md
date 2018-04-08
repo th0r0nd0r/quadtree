@@ -37,4 +37,4 @@ Now let's tackle the worst case scenario.  If, instead of releasing the pucks on
 
 Luckily, this situation isn't very common in collision detection, so quadtrees are often a useful tool.  If you find your pucks stacked this way often in your data, however, you may want to consider another structure.
 
-This project was inspired by [this video](https://www.youtube.com/watch?v=OJxEcs0w_kE)
+*This project was inspired by [this video](https://www.youtube.com/watch?v=OJxEcs0w_kE) by The Coding Train*
