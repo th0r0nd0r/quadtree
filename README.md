@@ -15,7 +15,7 @@ The visualizer also has a heatmap- cells turn from green to red as they fill up 
 
 ## Applications
 
-Quad trees have a range of uses, including binary image processing and 2D collision detection.  
+Quadtrees have a range of uses, including binary image processing and 2D collision detection.  
 
 Say you dump 1,000 hockey pucks onto an ice rink in your physics simulation.  You want to make a program that follows all the pucks and checks to see which ones collide with each other.  You could keep checking each puck to see if it has collided with every other puck (all 999) of them, but that's a lot of checks.  
 
